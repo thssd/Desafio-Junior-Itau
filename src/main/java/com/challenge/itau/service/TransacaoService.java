@@ -2,7 +2,6 @@ package com.challenge.itau.service;
 
 import com.challenge.itau.dto.TransacaoDTO;
 import com.challenge.itau.infra.exceptions.UnprocessableEntity;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.OffsetDateTime;

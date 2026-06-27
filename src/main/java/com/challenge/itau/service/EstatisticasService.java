@@ -2,7 +2,6 @@ package com.challenge.itau.service;
 
 import com.challenge.itau.dto.EstatisticaDTO;
 import com.challenge.itau.dto.TransacaoDTO;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
