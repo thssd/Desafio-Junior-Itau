@@ -1,6 +1,6 @@
 package com.challenge.itau.service;
 
-import com.challenge.itau.controller.dtos.TransacaoDTO;
+import com.challenge.itau.dto.TransacaoDTO;
 import com.challenge.itau.infra.exceptions.UnprocessableEntity;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,6 +25,18 @@ public class TransacaoService {
         }
 
         listaTransacao.add(dto);
+    }
+
+    public void limparTransacao(){
+        listaTransacao.clear();
+    }
+
+    public List<TransacaoDTO> buscarTransacao(Integer intervaloBusca){
+        OffsetDateTime dataHoraIntervalo = OffsetDateTime.now().minusSeconds(intervaloBusca);
+
+        return listaTransacao.stream()
+                .filter(t -> t.dataHora().isAfter(dataHoraIntervalo))
+                .toList();
     }
 
 }
