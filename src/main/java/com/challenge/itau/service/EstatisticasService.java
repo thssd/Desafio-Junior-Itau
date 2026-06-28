@@ -17,6 +17,10 @@ public class EstatisticasService {
     public EstatisticaDTO estatisticaTransacao(Integer intevaloBusca) {
         List<TransacaoDTO> transacaoDTOList = transacaoService.buscarTransacao(intevaloBusca);
 
+        if (transacaoDTOList.isEmpty()){
+            return new EstatisticaDTO(0L, 0.0, 0.0, 0.0, 0.0);
+        }
+
         DoubleSummaryStatistics doubleSummaryStatistics = transacaoDTOList.stream()
                 .mapToDouble(TransacaoDTO::valor).summaryStatistics();
 
